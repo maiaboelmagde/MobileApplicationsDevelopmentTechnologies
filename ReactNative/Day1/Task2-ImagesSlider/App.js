@@ -15,7 +15,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>My Gallary</Text>
-      <ScrollView horizontal contentContainerStyle={{alignItems:'center'}}>
+      <ScrollView horizontal pagingEnabled contentContainerStyle={{alignItems:'center'}}>
         {images.map((img, index) => (
           <Image
             key={index}
