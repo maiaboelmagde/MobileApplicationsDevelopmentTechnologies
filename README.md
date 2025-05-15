@@ -1,1 +1,1 @@
-# MobileApplicationsDevelopmentConceptsAndTechnologies
+# MobileApplicationsDevelopmentTechnologies
