@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import TodoListComponent from './components/todolist.component';
+import TodoListComponent from './screens/todoScreen';
 
 export default function App() {
   return (
