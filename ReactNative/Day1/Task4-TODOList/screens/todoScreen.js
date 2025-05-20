@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { View, Text, TextInput, Button, FlatList, StyleSheet, Pressable, Image } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 import { IconButton } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 export default function TodoListComponent() {
@@ -11,6 +13,36 @@ export default function TodoListComponent() {
     const [ErrorText, setErrorText] = useState('');
     const [editingId, setEditingId] = useState(null);
     const [editingText, setEditingText] = useState('');
+
+    //Load Todos
+    useEffect(() => {
+        const loadTodos = async () => {
+            try {
+                const storedTodos = await AsyncStorage.getItem('todos');
+                if (storedTodos) {
+                    setTodos(JSON.parse(storedTodos));
+                }
+            } catch (error) {
+                console.log('Failed to load todos', error);
+            }
+        };
+
+        loadTodos();
+    }, []);
+
+
+    //Save Todos on Change
+    useEffect(() => {
+        const saveTodos = async () => {
+            try {
+                await AsyncStorage.setItem('todos', JSON.stringify(todos));
+            } catch (error) {
+                console.log('Failed to save todos', error);
+            }
+        };
+
+        saveTodos();
+    }, [todos]);
 
 
     const addTodo = () => {
@@ -165,6 +197,7 @@ export default function TodoListComponent() {
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         width: '100%',
         paddingHorizontal: 10,
         marginTop: 20,
