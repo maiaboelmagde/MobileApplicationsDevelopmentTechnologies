@@ -1,17 +1,17 @@
-double? calculate(double a, double b, String operator){
+double? calculate(double num1, double num2, String operator){
   double? result;
   switch (operator){
     case '+':
-      result = a+b;
+      result = num1+num2;
       break;
     case '-':
-      result = a-b;
+      result = num1-num2;
       break;
     case '*':
-      result = a * b;
+      result = num1 * num2;
       break;
     case '/':
-      result = a/b;
+      result = num1/num2;
       break;
   }
 

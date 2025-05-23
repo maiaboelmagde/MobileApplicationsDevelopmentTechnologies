@@ -1,4 +1,3 @@
-import 'package:task5_atm_simulator/task5_atm_simulator.dart' as task5_atm_simulator;
 import 'dart:io';
 
 void main(List<String> arguments) {
