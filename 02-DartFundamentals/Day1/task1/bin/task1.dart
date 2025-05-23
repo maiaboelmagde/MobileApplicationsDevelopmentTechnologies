@@ -23,7 +23,7 @@ void main(List<String> arguments) {
       }else if(num < 0){
         stdout.writeln('Error: Please enter a non-negative number.');
       }else{
-        stdout.writeln('Factorial of $num is ${function.Factorial(num)}');
+        stdout.writeln('Factorial of $num is ${function.calcFactorial(num)}');
       }
 
     }
