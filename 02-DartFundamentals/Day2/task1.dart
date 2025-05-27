@@ -3,7 +3,8 @@ import 'dart:io';
 void main(){
   stdout.write("Enter names (comma-separated):");
   String? input =stdin.readLineSync();
-  if(input != null){
+  print(input);
+  if(input != null && input.isNotEmpty){
     List<String> names = input.split(',');
     names = names.map((name)=>name[0].toUpperCase()+name.substring(1)).toList();
     stdout.write('Capitalized: ');
@@ -13,5 +14,7 @@ void main(){
 
     stdout.write('Names starting with A: ');
     print(namesStartsWithA);
+  }else{
+    print('Invalid Input !!');
   }
 }
