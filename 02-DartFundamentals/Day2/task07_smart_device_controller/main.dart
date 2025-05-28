@@ -15,7 +15,7 @@ void main() async{
         await SmartLight().lightOn();;
         break;
       case "speaker play Jazz":
-        await SmartLight().lightOn();
+        await SmartSpeaker().playSpeaker();
         break;
       case "exit":
         exitFlag = true;
