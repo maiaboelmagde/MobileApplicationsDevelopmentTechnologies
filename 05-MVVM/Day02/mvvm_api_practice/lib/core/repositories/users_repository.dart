@@ -6,7 +6,7 @@ class UsersRepository {
   UsersRepository(this.apiService);
 
   Future<List<UserModel>> loadUsers() async {
-    String url = "https://jsonplaeholder.typicode.com/users";
+    String url = "https://jsonplaceholder.typicode.com/users";
 
     dynamic data = await apiService.getData(url);
     if (data is List) {
