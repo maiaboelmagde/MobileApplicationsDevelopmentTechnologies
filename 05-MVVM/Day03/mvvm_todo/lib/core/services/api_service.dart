@@ -17,11 +17,11 @@ class ApiService extends ApiServiceBase {
       if (response.statusCode == 200 || response.statusCode == 201) {
         return response.data;
       } else {
-        //log('Error: ${response.statusCode}');
+        log('Error: ${response.statusCode}');
         return null;
       }
     } catch (e) {
-      //log('API call failed: $e');
+      log('API call failed: $e');
       return null;
     }
   }

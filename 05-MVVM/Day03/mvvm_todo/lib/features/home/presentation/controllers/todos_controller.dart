@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_todo/features/home/data/models/todo_model.dart';
 import 'package:mvvm_todo/features/home/domain/repositories/todo_repository_base.dart';
+import 'package:mvvm_todo/features/home/domain/usecases/filter_todos.dart';
 
 class TodosController extends ChangeNotifier {
   List<TodoModel> _allToDos = [];
   bool _isLoading = false;
   String? _errorMsg;
-  TodoRepositoryBase todoRepository;
+  FilterTodos filteredTodos;
 
-  TodosController(this.todoRepository);
+  TodosController(this.filteredTodos);
 
   get allToDos=>_allToDos;
   bool get isLoading=>_isLoading;
@@ -19,7 +20,7 @@ class TodosController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _allToDos = await todoRepository.getAllTodos();
+      _allToDos = await filteredTodos.getParticularUserTodos(1);
     } on Exception catch (e) {
       _errorMsg = '$e';
     } finally {
